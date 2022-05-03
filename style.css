@@ -4,3 +4,22 @@ body{
     flex-direction: column;
     margin: 50px;
 }
+
+.buttonContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 15px;
+}
+
+.calcTime{
+    grid-column: 1/3;
+}
+
+.displayContainer{
+    margin: 50px;
+}
+
+.timeDisplay{
+    font-size: 40px;
+}
