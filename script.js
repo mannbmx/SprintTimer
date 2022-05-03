@@ -32,6 +32,7 @@ const timeDisplay = document.querySelector('.timeDisplay');
 const calcTime = () => {
     time = stopTime - startTime;
     timeDisplay.textContent = time.toFixed(3)
+    write();
 }
 
 //Upload user video
@@ -54,4 +55,21 @@ function readVideo(event) {
   
       reader.readAsDataURL(event.target.files[0]);
     }
+  }
+
+  //Write to table
+  let i = 1;
+
+  const write = () => {
+    const newRow = document.createElement('tr');
+    const table = document.querySelector('table');
+    table.appendChild(newRow);
+    
+    const sprintNum = document.createElement('td');
+    newRow.appendChild(sprintNum);
+    sprintNum.textContent = "Sprint "+ i;
+    i++;
+    const sprintTime = document.createElement('td');
+    newRow.appendChild(sprintTime);
+    sprintTime.textContent = time.toFixed(3);
   }
