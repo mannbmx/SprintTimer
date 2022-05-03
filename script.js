@@ -33,3 +33,25 @@ const calcTime = () => {
     time = stopTime - startTime;
     timeDisplay.textContent = time.toFixed(3)
 }
+
+//Upload user video
+const source = document.querySelector('source');
+const videoUpload = document.querySelector('input')
+
+
+videoUpload.addEventListener('change', readVideo)
+
+function readVideo(event) {
+    console.log(event.target.files)
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      
+      reader.onload = function(e) {
+        console.log('loaded')
+        source.src = e.target.result
+        video.load()
+      }.bind(this)
+  
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
